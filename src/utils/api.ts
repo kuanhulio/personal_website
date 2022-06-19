@@ -28,3 +28,10 @@ export const getQuote = async () => {
     quote: `“${data.content}” — ${data.author}`,
   };
 };
+
+export const getMeme = async () => {
+  const { data } = await axios.get('https://meme-api.herokuapp.com/gimme');
+  return {
+    meme: `Submitted to r/${data.subreddit} by ${data.author}\n\ntitle: ${data.title}\n<img src="${data.url}" alt="meme" />`,
+  };
+};

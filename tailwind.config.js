@@ -1,4 +1,7 @@
-const { colors } = require('./config.json');
+const { color } = require('./config.json');
+const themeTable  = require('./themes.json');
+
+let colors = themeTable[color];
 
 module.exports = {
   content: [

@@ -33,7 +33,7 @@ export const about = async (args: string[]): Promise<string> => {
   return `Hi, I am ${config.name}. 
 Welcome to my website!
 More about me:
-'sumfetch' - short summary.
+'sumfetch' - short summary about me.
 'resume' - my latest resume.
 'readme' - my github readme.`;
 };
@@ -60,7 +60,6 @@ export const email = async (args: string[]): Promise<string> => {
 
 export const github = async (args: string[]): Promise<string> => {
   window.open(`https://github.com/${config.social.github}/`);
-
   return 'Opening github...';
 };
 
@@ -91,7 +90,165 @@ export const reddit = async (args: string[]): Promise<string> => {
   return `Searching reddit for ${args.join(' ')}...`;
 };
 
+export const stackoverflow = async (args: string[]): Promise<string> => {
+  window.open(`https://stackoverflow.com/search?q=${args.join(' ')}`);
+  return `Searching stack overflow for ${args.join(' ')}...`;
+};
+
+// Homelab Pages
+
+export const sonarr = async (args: string[]): Promise<string> => {
+  window.open(`https://sonarr.${config.ps1_hostname}/`);
+  return 'Opening Sonarr...';
+};
+
+export const radarr = async (args: string[]): Promise<string> => {
+  window.open(`https://radarr.${config.ps1_hostname}/`);
+  return 'Opening Radarr...';
+};
+
+export const prowlarr = async (args: string[]): Promise<string> => {
+  window.open(`https://prowlarr.${config.ps1_hostname}/`);
+  return 'Opening Prowlarr...';
+};
+
+export const qbit = async (args: string[]): Promise<string> => {
+  window.open(`https://qbit.${config.ps1_hostname}/`);
+  return 'Opening QBittorrent...';
+};
+
 // Typical linux commands
+export const neofetch = async (args: string[]): Promise<string> => {
+  var sBrowser, sUsrAg = navigator.userAgent;
+
+  if (sUsrAg.indexOf("Chrome") > -1) {
+    sBrowser = "Chrome";
+    return `
+             ////////////////                     guest@kuantum.link
+           ///////////////////                    ------------------
+       ///////////////////////////                Browser: ${sBrowser}
+     *//////////////////////////////              User Agent: ${sUsrAg}
+   ***/////////////#@%((((((((((((((((            Username: ${config.ps1_username}
+  ****////////@@@@/////@@@@((((((((((((           Running on: ${config.ps1_hostname}
+ *****//////@@/////////////@@(((((((((((          Shell: bash 5.1.16-pseudo
+ *******///@@///////////////@@((((((((((          Terminal: /dev/pts/0
+*********/@@@///////////////@@####((((((          
+ *********/@@///////////////@@########((          
+ ***********@@/////////////@@###########
+  ************@@@@/////@@@@*########### 
+   ***********************############  
+     ********************###########    
+       ****************###########      
+           ***********########          
+    `;
+  }
+  else if (sUsrAg.indexOf("Safari") > -1) {
+    sBrowser = "Safari";
+    return `
+                        ######                    guest@kuantum.link
+                      ##%#####                    ------------------
+                     #######                      Browser: ${sBrowser}
+                    ####%                         User Agent: ${sUsrAg}
+        ########%%      ########%##               Username: ${config.ps1_username}
+    ####%#######%#######%#######%#####.           Running on: ${config.ps1_hostname}
+  ##############%###############%####             Shell: bash 5.1.16-pseudo
+ #%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%#%               Terminal: /dev/pts/0
+ ###############%###############%#      
+%#######%#######%#######%#######%#      
+ ###############%###############%#      
+ ###%###%###%###%###%###%###%###%##     
+ ###############%###############%####   
+  ######%#######%#######%#######%#######
+   #############%###############%###### 
+     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+      ##########%###############%###.   
+        ########%#######%#######%#      
+    `;
+  }
+  else if (sUsrAg.indexOf("Opera") > -1) {
+    sBrowser = "Opera";
+    return `
+            *****************                    guest@kuantum.link
+           ******************* 				        	 ------------------
+       ***********,,,,,,,,,,,,,,,,               Browser: ${sBrowser}
+     **********           ,,,,,,,,,,             User Agent: ${sUsrAg}
+   **********               ,,,,,,,,,,           Username: ${config.ps1_username}
+  **********                  *********          Running on: ${config.ps1_hostname}
+ **********                    *********         Shell: bash 5.1.16-pseudo
+ *********                     *********	    	 Terminal: /dev/pts/0
+**********                     /////////
+ *********                     /////////
+ **********                    /////////
+  **********                  ((((((((( 
+   **********               ((((((((((  
+     ,,,,,,,,,,           ((((((((((    
+       ,,,,,,,,,,,((((((((((((((((      
+           ,,,,,,,,,,,,,,,,,,,          
+    `;
+  }
+  else if (sUsrAg.indexOf("Firefox") > -1) {
+    sBrowser = "Firefox";
+    return `
+                        &&&&                      guest@kuantum.link
+                      &&&&&&&&                    -------------------
+       #             &&&&&&&&&&&                  Browser ${sBrowser}
+    ####   ##%      %%%&&&&&&&&&&&  &             User Agent: ${sUsrAg}
+   ((#######%# **/////////&&&&&&&&&& &&           Username: ${config.ps1_username}
+  (((((########%/////////&(/*%%%%&&&&&&&          Running on: ${config.ps1_hostname}
+ (((((##%%%%%%####%%&///////&&&%%%%%%&&&          Shell: bash 5.1.16-pseudo
+ (((((((#%%%%%%//////////////%%%%%%%%&%&          Terminal: /dev/pts/0
+ //((((((((%****////////////*%%%%###%%%%
+ *////(((((#******/////////*(###(#%%%%%%
+ **///////(((#*************#########%###
+   *///////////((*******(((((((#####((# 
+    ***///////////////((((((((((((/((   
+      ****/////////////////////**//     
+         *******/////////*******        
+              **************            
+    `;
+  }
+  else if (sUsrAg.indexOf("MSIE") > -1) {
+    sBrowser = "IE";
+    return `
+                             (((((((((((((  		guest@kuantum.link
+              (((((((((((((((((       (         -----------------
+           (((((((((((((((((((((((    (         Browser: ${sBrowser}
+         (((( ((((((((((((((((((((((            User Agent: ${sUsrAg}
+       ((  ((((((           ((((((((((          Username: ${config.ps1_username}
+      (  (((((((              (((((((((         Running on: ${config.ps1_hostname}
+       ((((((((                (((((((((        Shell: bash 5.1.16-pseudo
+      ((((((((((((((((((((((((((((((((((        Terminal: /dev/pts/0
+    (((((((((((                         
+   (((((((((((((                        
+  (((  (((((((((((          ((((((((((  
+  ((    (((((((((((((((((((((((((((((   
+ (((       ((((((((((((((((((((((((     
+  ((,        ((((((((((((((((((         
+    ((((((                              
+    `;
+  }
+  else {
+    sBrowser = "unknown";
+    return `
+              ##((((////**,                         guest@kuantum.link
+        (%#(((((/((////*////*(/*                    ------------------
+       &@#%%((#%#(#(/*//(/,/////((*/                Master Chief? Mind telling me what you're doing on the internet?
+      %&&#####(((((,....... ,*,,.//#,*, 
+     @@(****,,    .,,,,...   .   .   .. 
+   (*/%//*.,/*,/*((%&&&@&&%((//*#@/     
+   ,(%(/,.,,/..,.*((#((%###/,.,,(&      
+   /(%//*,*,*(..,,/(/(####(#/*./*.                  Sir, downloading copyrighted films to enjoy privately.
+.,/#%%(/..((%%*/,,*////((((//,*,,.      
+.,,/(##( ..//(##%%%&////,/.**,,.,,      
+*,*,,*/(,../*/,((((######******.,(      
+*/****.,.,,/*.,,,*/((((/,,....,.,. ,,               And just like that, Master Chief, the savior of humanity, was charged
+//*/((.  ..    .,,,***///,,,,,...                   with treason and copyright infringement.
+*/*(,*.  ..,,*,,..   .// .,., .         
+(((/**.. ..*/,,,,,, ,                 . 
+    `;
+  }
+};
+
 export const echo = async (args: string[]): Promise<string> => {
   return args.join(' ');
 };
@@ -100,12 +257,44 @@ export const whoami = async (args: string[]): Promise<string> => {
   return `${config.ps1_username}`;
 };
 
+export const exit = async (args: string[]): Promise<string> => {
+  if (config.ps1_username === "root") {
+    config.ps1_username = "guest";
+    return "logout";
+  } else {
+    window.close();
+  }
+};
+
+export const hostname = async (args: string[]): Promise<string> => {
+  if (config.ps1_username === "root" && args[0] === "-b") {
+    config.ps1_hostname = args[1];
+    return "hostname set to " + args[1];
+  } else if (config.ps1_username === "root" && args[0] === "-t") {
+    config.title = args[1];
+    return "title set to " + args[1];
+  } else {
+    return `${config.ps1_hostname}`;
+  }
+};
+
+export const ps = async (args: string[]): Promise<string> => {
+  return `
+     PID TTY          TIME CMD
+  294936 pts/0    00:00:00 bash
+  318821 pts/0    00:00:00 ps
+  `;
+};
+
 export const ls = async (args: string[]): Promise<string> => {
-  return `a
+  return `
+a
 bunch
 of
 fake
-directories`;
+jailbreak
+directories
+`;
 };
 
 export const cd = async (args: string[]): Promise<string> => {
@@ -130,25 +319,50 @@ export const nvim = async (args: string[]): Promise<string> => {
 };
 
 export const emacs = async (args?: string[]): Promise<string> => {
-  return `you know what? just use vscode.`;
+  return `you know what? just use sublime.`;
+};
+
+export const sublime = async (args?: string[]): Promise<string> => {
+  return `not sure about that. maybe you should use notepad++? try 'notepadpp'`;
+};
+
+export const notepadpp = async (args?: string[]): Promise<string> => {
+  return `yikes, too bare bones, maybe you should try atom?`;
+};
+
+export const atom = async (args?: string[]): Promise<string> => {
+  return `hah! it's dead jim. perhaps we should go back to basics. try 'notepad'.`;
+};
+
+export const notepad = async (args?: string[]): Promise<string> => {
+  return `alright alright...try 'vscode'`;
+};
+
+export const vscode = async (args?: string[]): Promise<string> => {
+  window.open(`vscode://`);
+  return `opening god's favorite editor...`;
 };
 
 export const sudo = async (args?: string[]): Promise<string> => {
-  window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); // ...I'm sorry
-  return `Permission denied: with little power comes... no responsibility? `;
+  if (args.length > 0 && args[0] === 'jailbreak') {
+    config.ps1_username = 'root';
+    return `jailbreak successful.`;
+  } else {
+    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank'); // ...I'm sorry
+    return `Permission denied: with little power comes... no responsibility? `;
+  }
+  
 };
 
 // Banner
 export const banner = (args?: string[]): string => {
   return `
-█████        ███                       ███████████                                   
-░░███        ░░░                       ░█░░░███░░░█                                   
- ░███        ████  █████ █████  ██████ ░   ░███  ░   ██████  ████████  █████████████  
- ░███       ░░███ ░░███ ░░███  ███░░███    ░███     ███░░███░░███░░███░░███░░███░░███ 
- ░███        ░███  ░███  ░███ ░███████     ░███    ░███████  ░███ ░░░  ░███ ░███ ░███ 
- ░███      █ ░███  ░░███ ███  ░███░░░      ░███    ░███░░░   ░███      ░███ ░███ ░███ 
- ███████████ █████  ░░█████   ░░██████     █████   ░░██████  █████     █████░███ █████
-░░░░░░░░░░░ ░░░░░    ░░░░░     ░░░░░░     ░░░░░     ░░░░░░  ░░░░░     ░░░░░ ░░░ ░░░░░ 
+██╗  ██╗██╗   ██╗ █████╗ ███╗   ██╗████████╗██╗   ██╗███╗   ███╗███████╗    ██╗     ██╗███╗   ██╗██╗  ██╗
+██║ ██╔╝██║   ██║██╔══██╗████╗  ██║╚══██╔══╝██║   ██║████╗ ████║██╔════╝    ██║     ██║████╗  ██║██║ ██╔╝
+█████╔╝ ██║   ██║███████║██╔██╗ ██║   ██║   ██║   ██║██╔████╔██║███████╗    ██║     ██║██╔██╗ ██║█████╔╝ 
+██╔═██╗ ██║   ██║██╔══██║██║╚██╗██║   ██║   ██║   ██║██║╚██╔╝██║╚════██║    ██║     ██║██║╚██╗██║██╔═██╗ 
+██║  ██╗╚██████╔╝██║  ██║██║ ╚████║   ██║   ╚██████╔╝██║ ╚═╝ ██║███████║    ███████╗██║██║ ╚████║██║  ██╗
+╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚══════╝    ╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝
 
 Type 'help' to see the list of available commands.
 Type 'sumfetch' to display summary.
